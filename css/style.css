@@ -4,10 +4,6 @@
 body {
   width: 100%;
   overflow-x: hidden;
-  background: url('../images/bg-curvy-desktop.svg') no-repeat;
-  background-size: cover;
-  background-size: 100%;
-  background-attachment:fixed;
   background-color: hsl(217, 28%, 15%);
   color: #fcffff;
   font-size: 14px;
@@ -17,6 +13,30 @@ body {
 .mainContainer {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.bgContainer {
+  background: url('../images/bg-curvy-desktop.svg') no-repeat;
+  background-size: 100% 30%;
+  background-position: 0 25.5%;
+}
+
+.bgContainer {
+  position: relative;
+  background: url('../images/bg-curvy-desktop.svg') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 25.5%;
+}
+
+.rowContainer::after {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 1860px;
+  background-color: hsl(218, 28%, 13%);
+  content: '';
 }
 
 header,
@@ -287,11 +307,21 @@ ul.headerList li a:hover {
   line-height: 2.3em;
   text-decoration: none;
   align-items: center;
+  gap: 5px;
 }
 
 .secItem01 .link02 a:hover {
   border-bottom-color: #fff;
   color: #fff;
+}
+
+.link02:hover svg use {
+  fill: #fff;
+}
+
+.link02 svg {
+  padding-top: 2px;
+  padding-left: 2px;
 }
 
 .link02 img {
@@ -463,6 +493,9 @@ i.fab:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .rowContainer::after {
+    top: 30%;
+  }
   .col,
   .col-sm-6,
   .gridItem01,
@@ -481,8 +514,8 @@ i.fab:hover {
     font-size: 13px;
   }
   .gridContainer {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 30px;
   }
   .bgImg {
     left: -20px;
@@ -545,11 +578,43 @@ i.fab:hover {
 }
 
 @media screen and (max-width: 575px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .bannerContent {
+    padding-right: 20px;
+  }
+  .bannerImg {
+    padding: 40px 40px!important;
+  }
   .headerList {
-    gap: 5px;
+    gap: 20px;
+  }
+  .gridItem02 .txtDetails {
+    padding-right: 0;
+  }
+  .gridItem03 .txtDetails {
+    padding-left: 0;
+  }
+  .img03 img {
+    padding-left: 0;
+  }
+  .gridItem03 p {
+    padding-left: 0;
+  }
+  .gridItem01 p,
+  .gridItem02 p,
+  .gridItem03 p,
+  .gridItem04 p {
+    padding-bottom: 15px!important;
   }
   .section01 {
     padding-right: 0;
+  }
+  .sectionTxt {
+    padding-right: 54px;
   }
   .footerItem01,
   .footerItem02,
@@ -559,6 +624,9 @@ i.fab:hover {
   }
   .footerItem04 {
     padding-left: 0;
+  }
+  .footerItem05 ul {
+    padding: 30px 0;
   }
   .footerImg02 img,
   .footerImg03 img {
@@ -597,6 +665,12 @@ i.fab:hover {
 }
 
 @media screen and (max-width: 425px) {
+  .bgContainer {
+    background-position: 0 7%;
+  }
+  .rowContainer::after {
+    top: 9.3%;
+  }
   .headerList {
     gap: 10px;
   }
@@ -608,7 +682,7 @@ i.fab:hover {
   }
   .sectionTxt {
     padding-left: 30px;
-    padding-right: 20px;
+    padding-right: 40px;
   }
   .bgImg {
     top: -30px;
@@ -619,60 +693,119 @@ i.fab:hover {
   .formInner input {
     text-align: center;
   }
+  .formContainer {
+    padding: 20px;
+  }
+  .formInner input,
+  .formContainer button {
+    width: 280px;
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 375px) {
-  .headerList {
-    font-size: 10px;
-    gap: 5px;
+  * {
+    margin: 0!important;
+    padding: 0!important;
+    box-sizing: border-box!important;
+  }
+  .bgContainer {
+    background-position: 0 5%;
+  }
+  .rowContainer::after {
+    top: 370px;
+  }
+  h1 {
+    font-size: 25px;
+    line-height: 1.5em;
   }
   .headerLogo {
     width: 100px;
   }
-  .footerItem01,
-  .footerItem02,
-  .footerItem04 {
-    margin-left: 0;
+  .headerInner {
+    margin: 30px 40px 0!important;
   }
-  .footerItem03 {
-    padding-left: 0;
+  .headerList {
+    font-size: 10px;
+    gap: 20px;
   }
-  .footerItem05 ul {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  .secItem01 .link02 {
+    width: 168px;
   }
-  .formContainer {
-    margin: 0 20px;
+  .bannerContent {
+    padding: 0 40px!important;
   }
-  .gridContainer {
-    margin-left: 30px;
-    margin-right: 30px;
+  .bannerContent p {
+    padding-top: 20px!important;
   }
-  .formInner input {
-    width: 80%;
-    margin-left: 0;
-  }
+  .formInner input,
   .formContainer button {
     width: 80%;
-    margin-left: 0;
   }
-  .gridItem04 .txtDetails {
-    padding-right: 0;
+  .formInner input {
+    margin-bottom: 20px!important;
+    padding: 15px!important;
   }
-  .gridItem03 .txtDetails {
-    padding-left: 12px;
+  .buttonMain button {
+    padding: 20px!important;
   }
-  .footerBtm {
-    padding: 0 25px;
+  .buttonMain {
+    padding: 65px 0 260px 0!important;
   }
-  .gridItem03 p {
-    padding: 10px 25px;
+  .gridItem01,
+  .gridItem02,
+  .gridItem03,
+  .gridItem04 {
+    padding: 40px 40px 0!important;
   }
-  .img02 img {
-    margin-top: 0;
-    padding-right: 0;
+  .section01 {
+    padding: 40px 40px 150px!important;
   }
-  .gridItem02 .txtDetails {
-    padding-right: 15px;
+  .gridGap {
+    margin: 0 40px!important;
+  }
+  .bgImg {
+    left: 45px;
+  }
+  .detailsInner {
+    max-width: 14%;
+    padding-top: 20px!important;
+    flex: 1;
+  }
+  .detailsInfo {
+    padding-top: 20px!important;
+    flex: 2;
+  }
+  .gridItem {
+    padding: 15px!important;
+  }
+  .gridItem p {
+    letter-spacing: 0;
+  }
+  .formContainer {
+    margin-top: 380px!important;
+    padding: 40px 40px 40px!important;
+  }
+  .footerLogo,
+  .footerBtm  {
+    padding: 0 40px!important;
+  }
+  .footerImg01 img {
+    padding-top: 5px!important;
+  }
+  .footerItem01 p {
+    padding-left: 40px!important;
+  }
+  .footerImg02 a,
+  .footerImg03 a {
+    padding-left: 30px!important;
+  }
+  .footerItem02,
+  .footerItem03,
+  .footerItem04 {
+    padding-bottom: 100px!important;
+  }
+  .footerItem05 {
+    padding-bottom: 50px!important;
   }
 }

@@ -1,5 +1,5 @@
 document.getElementById("emailForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent the form from submitting
+  e.preventDefault();
 
   const emailInput = document.getElementById("email");
   const errorSpan = document.getElementById("error");
